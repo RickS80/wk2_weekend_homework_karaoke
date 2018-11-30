@@ -17,6 +17,9 @@ class TestRoom < MiniTest::Test
     @guest6 = Guest.new("Panpan", 50)
     @guest7 = Guest.new("Houdini", 50)
     @group = @guest1, @guest2, @guest3, @guest4, @guest5
+    @song1 = Song.new("Bohemian Rhapsody", "Queen")
+    @song2 = Song.new("Piano Man", "Billy Joel")
+    @song3 = Song.new("Roar", "Katy Perry")
   end
 
   def test_room_has_name
@@ -63,12 +66,19 @@ def test_room_can_accept_guest__pass
   assert_equal(5, @room1.room_pax_count)
 end
 
-  # def test_guest_leaves
-  #   @room1.add_guest(@guest1)
-  #   @room1.add_guest(@guest2)
-  #   @room1.delete(@guest1)
-  #   assert_equal([@guest2], @room1.room_status)
-  # end
+  def test_guest_leaves
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+    @room1.add_guest(@guest3)
+    @room1.room_status.delete(@guest1)
+    assert_equal(2, @room1.room_pax_count)
+  end
+
+  def test_add_song_to_room_song_library
+    @room1.add_song(@song1)
+    assert_equal(1, @room1.check_playlist_count)
+  end
+
 
 
 end
