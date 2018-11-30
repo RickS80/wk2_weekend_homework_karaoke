@@ -22,6 +22,8 @@ class TestGuest < MiniTest::Test
 
   def test_guest_wallet_content
     assert_equal(100, @guest1.wallet)
-  end 
+  end
+
+
 
 end
