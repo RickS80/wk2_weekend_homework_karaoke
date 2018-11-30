@@ -57,14 +57,14 @@ class TestRoom < MiniTest::Test
     assert_equal("Room is full", @room1.add_guest(@guest6))
   end
 
-def test_room_can_accept_guest__pass
-  @room1.add_guest(@guest1)
-  @room1.add_guest(@guest2)
-  @room1.add_guest(@guest3)
-  @room1.add_guest(@guest4)
-  @room1.add_guest(@guest5)
-  assert_equal(5, @room1.room_pax_count)
-end
+  def test_room_can_accept_guest__pass
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+    @room1.add_guest(@guest3)
+    @room1.add_guest(@guest4)
+    @room1.add_guest(@guest5)
+    assert_equal(5, @room1.room_pax_count)
+  end
 
   def test_guest_leaves
     @room1.add_guest(@guest1)
@@ -78,6 +78,7 @@ end
     @room1.add_song(@song1)
     assert_equal(1, @room1.check_playlist_count)
   end
+
 
 
 

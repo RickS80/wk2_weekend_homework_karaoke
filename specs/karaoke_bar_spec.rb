@@ -10,6 +10,7 @@ class TestKaraoke_Bar < MiniTest::Test
     @bar = Karaoke_Bar.new("Supercube", 50)
     @guest1 = Guest.new("Rick", 100)
     @guest2 = Guest.new("Midori", 30)
+    @till = 200
   end
 
   def test_bar_has_name
@@ -26,6 +27,18 @@ class TestKaraoke_Bar < MiniTest::Test
 
   def test_guest_has_enough_money_fail
     assert_equal("Bugger off", @bar.guest_has_enough_money(@guest2))
+  end
+
+  def test_till_level
+    assert_equal(200, @bar.till_level(@till))
+  end
+
+  def test_till_level__1_guest
+    assert_equal(250, @bar.new_entry_till_level(1))
+  end
+
+  def test_till_level__3_guests
+    assert_equal(350, @bar.new_entry_till_level(3))
   end
 
 end
