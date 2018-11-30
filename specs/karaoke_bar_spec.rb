@@ -21,11 +21,11 @@ class TestKaraoke_Bar < MiniTest::Test
   end
 
   def test_guest_has_enough_money_pass
-    
+   assert_equal("Please come in", @bar.guest_has_enough_money(@guest1))
   end
 
   def test_guest_has_enough_money_fail
-
+    assert_equal("Bugger off", @bar.guest_has_enough_money(@guest2))
   end
 
 end
