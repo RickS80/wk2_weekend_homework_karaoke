@@ -1,22 +1,22 @@
-require('pry')
 
 class Room
 
 
-attr_accessor :room_name, :room_capacity, :room_status, :song_library
+
+attr_accessor :room_name, :room_capacity, :room_status, :song_playlist
 
 
   def initialize(room_name, room_capacity)
     @room_name = room_name
     @room_capacity = room_capacity
     @room_status = []
-    @song_library = []
+    @song_playlist = []
   end
 
   def add_guest(guest)
     if @room_status.length < @room_capacity
-    @room_status << guest
-    else "Room is full"
+      @room_status << guest
+      else "Room is full"
     end
   end
 
@@ -29,11 +29,20 @@ attr_accessor :room_name, :room_capacity, :room_status, :song_library
   end
 
   def add_song(song)
-    @song_library << song
+    @song_playlist << song
   end
-  
+
   def check_playlist_count
-    @song_library.length
+    @song_playlist.length
   end
+
+  def favourite_song_reply(guest, selected_song)
+    if selected_song == guest.favourite_song && @room_status.include?(guest)
+      return "Whoo"
+    elsif selected_song !=guest.favourite_song && @room_status.include?(guest)
+      return "My favourite song is #{guest.favourite_song}, play that!"
+    end
+  end
+
 
 end

@@ -3,13 +3,15 @@ require('minitest/rg')
 require('pry')
 require_relative('../karaoke_bar')
 require_relative('../guest')
+require_relative('../song')
 
 class TestKaraoke_Bar < MiniTest::Test
 
   def setup
     @bar = Karaoke_Bar.new("Supercube", 50)
-    @guest1 = Guest.new("Rick", 100)
-    @guest2 = Guest.new("Midori", 30)
+    @song1 = Song.new("Bohemian Rhapsody", "Queen")
+    @guest1 = Guest.new("Rick", 100, @song1, "25 January")
+    @guest2 = Guest.new("Midori", 30, @song1, "16 August")
     @till = 200
   end
 
@@ -40,5 +42,7 @@ class TestKaraoke_Bar < MiniTest::Test
   def test_till_level__3_guests
     assert_equal(350, @bar.new_entry_till_level(3))
   end
+
+
 
 end

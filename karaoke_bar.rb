@@ -23,8 +23,8 @@ attr_accessor :till
 
   def new_entry_till_level(number_of_guests)
     total_entry_fee = @entry_fee * number_of_guests
-    new_till_total = total_entry_fee + @till
-    return new_till_total
+    @till += total_entry_fee
+    return @till
   end
 
 
