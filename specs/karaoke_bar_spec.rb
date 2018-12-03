@@ -16,6 +16,7 @@ class TestKaraoke_Bar < MiniTest::Test
   end
 
   def test_bar_has_name
+    @bar.till = 500
     assert_equal("Supercube", @bar.bar_name)
   end
 

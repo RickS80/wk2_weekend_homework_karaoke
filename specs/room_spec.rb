@@ -70,7 +70,7 @@ class TestRoom < MiniTest::Test
     @room1.add_guest(@guest1)
     @room1.add_guest(@guest2)
     @room1.add_guest(@guest3)
-    @room1.room_status.delete(@guest1)
+    @room1.guest_leaves(@guest1)
     assert_equal(2, @room1.room_pax_count)
   end
 
@@ -86,7 +86,7 @@ class TestRoom < MiniTest::Test
 
   def test_guest_present_but_song_is_not_favourite
     @room1.add_guest(@guest1)
-    assert_equal("My favourite song is #{@guest1.favourite_song}, play that!", @room1.favourite_song_reply(@guest1, @song2))
+    assert_equal("My favourite song is Bohemian Rhapsody, play that!", @room1.favourite_song_reply(@guest1, @song2))
   end
 
   def test_favourite_song__but_guest_not_present

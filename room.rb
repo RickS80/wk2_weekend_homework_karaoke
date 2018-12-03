@@ -1,8 +1,6 @@
 
 class Room
 
-
-
 attr_accessor :room_name, :room_capacity, :room_status, :song_playlist
 
 
@@ -40,7 +38,7 @@ attr_accessor :room_name, :room_capacity, :room_status, :song_playlist
     if selected_song == guest.favourite_song && @room_status.include?(guest)
       return "Whoo"
     elsif selected_song !=guest.favourite_song && @room_status.include?(guest)
-      return "My favourite song is #{guest.favourite_song}, play that!"
+      return "My favourite song is #{guest.favourite_song.song_name}, play that!"
     end
   end
 
